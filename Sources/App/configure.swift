@@ -24,7 +24,7 @@ public func configure(_ app: Application) async throws {
 
   app.migrations.add(CreateAcronym())
   app.logger.logLevel = .debug
-  try app.autoMigrate().wait()
+  try await app.autoMigrate().get()
 
   // register routes
   try routes(app)
